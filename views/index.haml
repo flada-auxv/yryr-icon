@@ -1,0 +1,8 @@
+%h1{style: 'text-align: center'} TwitterのアイコンをランダムでYRYRするやつ
+
+.div{style: 'text-align: center'}
+  - if current_user
+    %a{href: '/change'} アイコン画像をランダムに変更する
+  - else
+    %a{href: '/auth/twitter'}
+      %img{src: '/sign-in-with-twitter-gray.png'}
