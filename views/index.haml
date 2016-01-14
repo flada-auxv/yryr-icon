@@ -1,5 +1,7 @@
 %h1{style: 'text-align: center'} TwitterのアイコンをランダムでYRYRするやつ
 
+= flash[:error]
+
 .div{style: 'text-align: center'}
   - if current_user
     %a{href: '/change'} アイコン画像をランダムに変更する

@@ -1,6 +1,7 @@
 require 'hamlit'
 require 'omniauth-twitter'
 require 'pry'
+require 'rack-flash'
 require 'sinatra'
 require 'twitter'
 require 'yaml'
@@ -8,6 +9,7 @@ require 'yaml'
 class MyApp < Sinatra::Base
   configure do
     enable :sessions
+    use Rack::Flash
 
     use OmniAuth::Builder do
       provider :twitter, ENV['CONSUMER_KEY'], ENV['CONSUMER_SECRET']
@@ -19,6 +21,8 @@ class MyApp < Sinatra::Base
   end
 
   get '/change' do
+    require_authentication!
+
     @icon_url = random_image_path
     icon = get_yryr_icon(@icon_url)
     twitter.update_profile_image(icon)
@@ -34,6 +38,14 @@ class MyApp < Sinatra::Base
   helpers do
     def current_user
       session[:uid]
+    end
+
+    def require_authentication!
+      unless current_user
+        flash[:error] = 'トップページから Twitter で認証してね'
+
+        redirect to('/')
+      end
     end
 
     def twitter
