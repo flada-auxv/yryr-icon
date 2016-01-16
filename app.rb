@@ -36,13 +36,17 @@ class MyApp < Sinatra::Base
   end
 
   get '/auth/twitter/callback' do
-    session[:uid] = env['omniauth.auth']['uid']
+    auth = env['omniauth.auth']
+    user = User.find_or_initialize_by(twitter_uid: auth[:uid])
+    user.update(token: auth[:credentials][:token], secret: auth[:credentials][:secret])
+    session[:current_user] = user
+
     redirect to('/')
   end
 
   helpers do
     def current_user
-      session[:uid]
+      session[:current_user]
     end
 
     def require_authentication!
@@ -57,8 +61,8 @@ class MyApp < Sinatra::Base
       Twitter::REST::Client.new do |config|
         config.consumer_key        = ENV['CONSUMER_KEY']
         config.consumer_secret     = ENV['CONSUMER_SECRET']
-        config.access_token        = ENV['ACCESS_TOKEN']
-        config.access_token_secret = ENV['ACCESS_SECRET']
+        config.access_token        = current_user.token
+        config.access_token_secret = current_user.secret
       end
     end
 
