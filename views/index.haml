@@ -4,7 +4,18 @@
 
 .div{style: 'text-align: center'}
   - if current_user
-    %a{href: '/change'} アイコン画像をランダムに変更する
+    .div
+      %form{action: '/schedule', method: 'post'}
+        毎日
+        %select{name: 'hours'}
+          - (0..23).each do |hours|
+            %option{value: hours}= hours
+        時ごろに変更する
+        %input{type: 'submit'}
+
+    .div
+      %a{href: '/change'} アイコン画像を今すぐ変更する
+
   - else
     %a{href: '/auth/twitter'}
       %img{src: '/sign-in-with-twitter-gray.png'}

@@ -35,6 +35,14 @@ class MyApp < Sinatra::Base
     haml :complete
   end
 
+  post '/schedule' do
+    require_authentication!
+
+    current_user.schedule_at(params[:hours])
+
+    redirect to('/')
+  end
+
   get '/auth/twitter/callback' do
     auth = env['omniauth.auth']
     user = User.find_or_initialize_by(twitter_uid: auth[:uid])
@@ -93,6 +101,10 @@ end
 
 class User < ActiveRecord::Base
   has_one :schedule
+
+  def schedule_at(hours)
+    create_schedule(hours: hours)
+  end
 end
 
 class Schedule < ActiveRecord::Base

@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration
 
     create_table :schedules do |t|
       t.references :user
-      t.datetime :run_at
+      t.integer :hours
 
       t.timestamps
     end
