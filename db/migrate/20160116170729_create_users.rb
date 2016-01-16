@@ -16,8 +16,3 @@ class CreateUsers < ActiveRecord::Migration
     end
   end
 end
-
-
-# Users.includes(:schedules).where(run_at: Time.now.hour).each do
-#   user.update_profile_image
-# end
