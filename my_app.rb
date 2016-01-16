@@ -1,12 +1,17 @@
+require 'active_record'
 require 'hamlit'
 require 'omniauth-twitter'
 require 'pry'
+require 'pg'
 require 'rack-flash'
 require 'sinatra'
+require 'sinatra/activerecord'
 require 'twitter'
 require 'yaml'
 
 class MyApp < Sinatra::Base
+  register Sinatra::ActiveRecordExtension
+
   configure do
     enable :sessions
     use Rack::Flash
@@ -80,4 +85,12 @@ class MyApp < Sinatra::Base
       tempfile
     end
   end
+end
+
+class User < ActiveRecord::Base
+  has_one :schedule
+end
+
+class Schedule < ActiveRecord::Base
+  belongs_to :user
 end

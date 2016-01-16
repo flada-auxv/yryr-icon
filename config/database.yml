@@ -1,0 +1,14 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: yryr_development
+
+production:
+  <<: *default
+  database: yryr_production
+  username:
+  password:
