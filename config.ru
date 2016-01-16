@@ -1,6 +1,6 @@
 require 'dotenv'
 Dotenv.load
 
-require_relative 'my_app'
+require_relative 'app'
 
 run MyApp
