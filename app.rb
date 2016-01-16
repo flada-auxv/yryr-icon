@@ -62,12 +62,12 @@ class MyApp < Sinatra::Base
       end
     end
 
-    def image_paths
-      YAML.load_file('./image_paths.yml')
+    def image_urls
+      YAML.load_file('./config/image_urls.yml')
     end
 
     def random_image_path
-      image_paths.sample
+      image_urls.sample
     end
 
     def get_yryr_icon(image_path = random_image_path)
