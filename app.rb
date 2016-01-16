@@ -102,6 +102,8 @@ end
 class User < ActiveRecord::Base
   has_one :schedule
 
+  validates :twitter_uid, :token, :secret, presence: true
+
   def schedule_at(hours)
     create_schedule(hours: hours)
   end
@@ -109,4 +111,6 @@ end
 
 class Schedule < ActiveRecord::Base
   belongs_to :user
+
+  validates :hours, presence: true, numericality: {greater_than_or_equal_to: 0, less_than: 24}
 end
