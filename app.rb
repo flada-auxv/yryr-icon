@@ -119,12 +119,12 @@ class User < ActiveRecord::Base
   private
 
   def twitter
-    @twitter ||= Twitter::REST::Client.new do |config|
+    Twitter::REST::Client.new {|config|
       config.consumer_key        = ENV['CONSUMER_KEY']
       config.consumer_secret     = ENV['CONSUMER_SECRET']
       config.access_token        = token
       config.access_token_secret = secret
-    end
+    }
   end
 end
 
