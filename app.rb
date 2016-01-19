@@ -38,6 +38,8 @@ class MyApp < Sinatra::Base
 
     current_user.schedule_at(params[:hours])
 
+    flash[:success] = "毎日 #{params[:hours]} 時に実行されるようにスケジュールしたよ"
+
     redirect to('/')
   end
 
