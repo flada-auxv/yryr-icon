@@ -1,8 +1,10 @@
 machine:
   timezone:
     Asia/Tokyo
+  pre:
+    - rvm use 2.3.0
   ruby:
-    version: 2.2.3
+    version: 2.3.0
 
 deployment:
    production:
