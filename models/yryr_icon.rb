@@ -10,19 +10,22 @@ class YRYRIcon
       all_urls.sample
     end
 
-    def get_random_icon
-      url = random_url
+    def get_icon(url)
       res = client.get(url)
+      file = create_tempfile(res.body)
 
+      new(url: url, file: create_tempfile(res.body))
+    end
+
+    def get_random_icon
+      get_icon(random_url)
+    end
+
+    def create_tempfile(str)
       tempfile = Tempfile.create(['yryr_icon', '.jpg'])
-      tempfile.write(res.body)
+      tempfile.write(str)
       tempfile.rewind
       tempfile
-
-      new {|icon|
-        icon.url = url
-        icon.file = tempfile
-      }
     end
 
     private
@@ -36,7 +39,8 @@ class YRYRIcon
     end
   end
 
-  def initialize(&block)
-    yield(self) if block_given?
+  def initialize(attributes = {})
+    @url = attributes[:url]
+    @file = attributes[:file]
   end
 end

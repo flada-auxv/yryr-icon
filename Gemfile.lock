@@ -19,6 +19,8 @@ GEM
     buftok (0.2.0)
     builder (3.2.2)
     coderay (1.1.0)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
@@ -30,6 +32,7 @@ GEM
       temple (~> 0.7.6)
       thor
       tilt
+    hashdiff (0.2.3)
     hashie (3.4.3)
     http (0.9.8)
       addressable (~> 2.3)
@@ -84,6 +87,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.0)
+    safe_yaml (1.0.4)
     simple_oauth (0.3.1)
     sinatra (1.4.6)
       rack (~> 1.4)
@@ -113,6 +117,10 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
+    webmock (1.22.6)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
 
 PLATFORMS
   ruby
@@ -132,6 +140,7 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   twitter
+  webmock
 
 BUNDLED WITH
    1.11.2
