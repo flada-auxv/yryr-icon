@@ -11,7 +11,14 @@ class YRYRIcon
     end
 
     def get_icon(url)
-      res = client.get(url)
+      begin
+        res = client.get(url)
+      rescue Faraday::ResourceNotFound, Faraday::ConnectionFailed
+        return nil
+      end
+
+      return nil unless %w(image/jpeg image/png).include?(res.headers[:content_type])
+
       file = create_tempfile(res.body)
 
       new(url: url, file: create_tempfile(res.body))

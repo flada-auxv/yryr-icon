@@ -18,15 +18,34 @@ RSpec.describe YRYRIcon do
 
   describe '.get_icon' do
     let(:url) { 'https://example.com/akari' }
-
-    before do
-      stub_request(:get, url).to_return(body: "xxx")
-    end
+    let(:headers) { {'Content-Type' => 'image/jpeg'} }
 
     subject { YRYRIcon.get_icon(url) }
 
-    it { expect(subject.url).to eq('https://example.com/akari')  }
-    it { expect(subject.file).to be_a(File) }
+    context 'when success' do
+      before do
+        stub_request(:get, url).to_return(body: "xxx", headers: headers)
+      end
+
+      it { expect(subject.url).to eq('https://example.com/akari')  }
+      it { expect(subject.file).to be_a(File) }
+    end
+
+    context 'when Faraday:::ResourceNotFound occured' do
+      before do
+        stub_request(:get, url).to_raise(Faraday::ResourceNotFound)
+      end
+
+      it { is_expected.to be_nil }
+    end
+
+    context 'when Content-Type is not image' do
+      before do
+        stub_request(:get, url).to_return(body: "xxx", headers: {'Content-Type' => 'text/html'})
+      end
+
+      it { is_expected.to be_nil }
+    end
   end
 
   describe '#initialize' do
