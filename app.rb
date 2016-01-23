@@ -67,38 +67,6 @@ class MyApp < Sinatra::Base
         redirect to('/')
       end
     end
-
-    def twitter
-      Twitter::REST::Client.new do |config|
-        config.consumer_key        = ENV['CONSUMER_KEY']
-        config.consumer_secret     = ENV['CONSUMER_SECRET']
-        config.access_token        = current_user.token
-        config.access_token_secret = current_user.secret
-      end
-    end
-
-    def image_urls
-      YAML.load_file('./config/image_urls.yml')
-    end
-
-    def random_image_path
-      image_urls.sample
-    end
-
-    def get_yryr_icon(image_path = random_image_path)
-      conn = Faraday.new do |faraday|
-        faraday.request  :url_encoded
-        faraday.response :logger
-        faraday.adapter  Faraday.default_adapter
-      end
-
-      res = conn.get(image_path)
-
-      tempfile = Tempfile.create(['yryr_img', '.jpg'])
-      tempfile.write(res.body)
-      tempfile.rewind
-      tempfile
-    end
   end
 end
 
