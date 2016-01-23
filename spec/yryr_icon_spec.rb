@@ -1,4 +1,4 @@
-RSpec.describe YRYRIcon do
+RSpec.describe Icon do
   let(:dummy_file) { File.new('spec/fixtures/yryr.png') }
 
   describe '.all_urls' do
@@ -8,7 +8,7 @@ RSpec.describe YRYRIcon do
   end
 
   describe '.create_tempfile' do
-    subject { YRYRIcon.create_tempfile(str) }
+    subject { Icon.create_tempfile(str) }
 
     let(:str) { 'xxx' }
 
@@ -16,11 +16,11 @@ RSpec.describe YRYRIcon do
     it { expect(subject.read).to eq('xxx') }
   end
 
-  describe '.get_icon' do
+  describe '.get' do
     let(:url) { 'https://example.com/akari' }
     let(:headers) { {'Content-Type' => 'image/jpeg'} }
 
-    subject { YRYRIcon.get_icon(url) }
+    subject { Icon.get(url) }
 
     context 'when success' do
       before do
@@ -51,7 +51,7 @@ RSpec.describe YRYRIcon do
   describe '#initialize' do
     let(:attributes) { {url: 'https://example.com/akari', file: dummy_file} }
 
-    subject { YRYRIcon.new(attributes) }
+    subject { Icon.new(attributes) }
 
     it { expect(subject.url).to eq('https://example.com/akari') }
     it { expect(subject.file).to be_a(File) }

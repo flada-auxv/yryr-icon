@@ -13,7 +13,7 @@ RSpec.describe User do
 
   describe '#update_profile_image' do
     let(:twitter) { double(:twitter) }
-    let(:icon) { instance_double(YRYRIcon) }
+    let(:icon) { instance_double(Icon) }
 
     before do
       allow(user).to receive(:twitter).and_return(twitter)

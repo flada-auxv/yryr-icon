@@ -1,4 +1,4 @@
-class YRYRIcon
+class Icon
   attr_accessor :url, :file
 
   class << self
@@ -10,7 +10,7 @@ class YRYRIcon
       all_urls.sample
     end
 
-    def get_icon(url)
+    def get(url)
       begin
         res = client.get(url)
       rescue Faraday::ResourceNotFound, Faraday::ConnectionFailed
@@ -24,8 +24,8 @@ class YRYRIcon
       new(url: url, file: create_tempfile(res.body))
     end
 
-    def get_random_icon
-      get_icon(random_url)
+    def get_random
+      get(random_url)
     end
 
     def create_tempfile(str)

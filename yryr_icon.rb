@@ -11,9 +11,9 @@ require 'yaml'
 
 require_relative 'models/schedule'
 require_relative 'models/user'
-require_relative 'models/yryr_icon'
+require_relative 'models/icon'
 
-class MyApp < Sinatra::Base
+class YRYRIcon < Sinatra::Base
   register Sinatra::ActiveRecordExtension
 
   configure do

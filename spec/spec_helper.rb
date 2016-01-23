@@ -1,6 +1,6 @@
 require 'webmock/rspec'
 
-require_relative '../app'
+require_relative '../yryr_icon'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

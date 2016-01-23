@@ -1,6 +1,6 @@
 require 'dotenv'
 Dotenv.load
 
-require_relative 'app'
+require_relative 'yryr_icon'
 
-run MyApp
+run YRYRIcon

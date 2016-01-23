@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   end
 
   def update_icon_randomly
-    icon = YRYRIcon.get_random_icon
+    icon = Icon.get_random
     update_profile_image(icon.file)
     icon
   end
