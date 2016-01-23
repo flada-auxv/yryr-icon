@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20160116170729) do
     t.datetime "updated_at"
   end
 
+  add_index "schedules", ["user_id"], name: "index_schedules_on_user_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "twitter_uid"
     t.string   "token"
@@ -30,5 +32,7 @@ ActiveRecord::Schema.define(version: 20160116170729) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["twitter_uid"], name: "index_users_on_twitter_uid", unique: true, using: :btree
 
 end

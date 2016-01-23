@@ -7,9 +7,10 @@ class CreateUsers < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :users, :twitter_uid, unique: true
 
     create_table :schedules do |t|
-      t.references :user
+      t.references :user, index: true
       t.integer :hours
 
       t.timestamps
