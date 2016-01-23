@@ -9,6 +9,7 @@ require 'sinatra/activerecord'
 require 'twitter'
 require 'yaml'
 
+require_relative 'models/schedule'
 require_relative 'models/user'
 require_relative 'models/yryr_icon'
 
@@ -68,10 +69,4 @@ class MyApp < Sinatra::Base
       end
     end
   end
-end
-
-class Schedule < ActiveRecord::Base
-  belongs_to :user
-
-  validates :hours, presence: true, numericality: {greater_than_or_equal_to: 0, less_than: 24}
 end
