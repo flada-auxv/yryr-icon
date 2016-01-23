@@ -1,5 +1,5 @@
 RSpec.describe User do
-  let(:user) { User.create(twitter_uid: 'yryr', token: 'xxx', secret: 'xxx') }
+  let(:user) { User.create(twitter_uid: SecureRandom.hex, token: 'xxx', secret: 'xxx') }
 
   describe '#schedule_at' do
     let(:hours) { 3 }
