@@ -7,6 +7,10 @@ development:
   <<: *default
   database: yryr_development
 
+test:
+  <<: *default
+  database: yryr_test
+
 production:
   <<: *default
   database: yryr_production

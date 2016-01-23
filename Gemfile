@@ -3,6 +3,7 @@ source "https://rubygems.org"
 ruby '2.3.0'
 
 gem 'activerecord'
+gem 'database_rewinder'
 gem 'dotenv'
 gem 'faraday'
 gem 'hamlit'
