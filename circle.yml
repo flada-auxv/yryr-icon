@@ -16,3 +16,7 @@ deployment:
             gem install circleci-bundle-update-pr
             circleci-bundle-update-pr CircleCI circleci@example.com
           fi
+
+notify:
+  webhooks:
+    - url: https://idobata.io/hook/circle_ci/62d1b60e-95f3-4f81-84ff-4742509d2c9f
