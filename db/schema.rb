@@ -16,21 +16,21 @@ ActiveRecord::Schema.define(version: 20160116170729) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "schedules", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "hours"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "schedules", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "hours",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "schedules", ["user_id"], name: "index_schedules_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
-    t.string   "twitter_uid"
-    t.string   "token"
-    t.string   "secret"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "users", force: :cascade do |t|
+    t.string   "twitter_uid", null: false
+    t.string   "token",       null: false
+    t.string   "secret",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "users", ["twitter_uid"], name: "index_users_on_twitter_uid", unique: true, using: :btree
