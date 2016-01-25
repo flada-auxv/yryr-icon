@@ -1,9 +1,19 @@
 require_relative '../yryr_icon'
 
 require 'database_rewinder'
+require 'rack/test'
 require 'webmock/rspec'
 
+ENV['RACK_ENV'] = 'test'
+
+module SinatraTestHelper
+  include Rack::Test::Methods
+  def app; YRYRIcon end
+end
+
 RSpec.configure do |config|
+  include SinatraTestHelper
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
