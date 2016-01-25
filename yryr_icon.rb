@@ -26,7 +26,13 @@ class YRYRIcon < Sinatra::Base
   end
 
   get '/' do
+    redirect to('/login') unless current_user
+
     haml :index
+  end
+
+  get '/login' do
+    haml :not_logged_in
   end
 
   get '/change' do
