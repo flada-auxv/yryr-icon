@@ -44,7 +44,7 @@ class YRYRIcon < Sinatra::Base
 
     @icon = current_user.update_icon_randomly
 
-    haml :complete
+    haml :complete, layout: false
   end
 
   post '/schedule' do

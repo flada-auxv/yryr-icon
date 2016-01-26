@@ -11,4 +11,17 @@
     %input{type: 'submit', value: '変更する'}
 
 .div
-  %a{href: '/change'} アイコン画像を今すぐ変更する
+  %a#icon-change{href: '#'} アイコン画像を今すぐ変更する
+
+.yryr-icon
+
+:javascript
+  $('#icon-change').click(function () {
+    $.ajax({
+      url: '/change'
+    }).done(function (data) {
+      $('.yryr-icon').html(data)
+    }).fail(function () {
+      $('.yryr-icon').html('ふぇぇ、何かエラーが起きたみたいだよぉ＞＜')
+    });
+  });
