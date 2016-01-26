@@ -1,8 +1,5 @@
-%h1{style: 'text-align: center'} TwitterのアイコンをランダムでYRYRするやつ
+= flash[:success]
+= flash[:error]
 
-.div{style: 'text-align: center'}
-  = flash[:success]
-  = flash[:error]
-
-  %a{href: '/auth/twitter'}
-    %img{src: '/sign-in-with-twitter-gray.png'}
+%a{href: '/auth/twitter'}
+  %img{src: '/sign-in-with-twitter-gray.png'}

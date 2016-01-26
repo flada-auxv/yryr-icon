@@ -18,6 +18,8 @@ class YRYRIcon < Sinatra::Base
 
   configure do
     enable :sessions
+    set :haml, escape_html: false
+
     use Rack::Flash
 
     use OmniAuth::Builder do

@@ -1,17 +1,14 @@
-%h1{style: 'text-align: center'} TwitterのアイコンをランダムでYRYRするやつ
+= flash[:success]
+= flash[:error]
 
-.div{style: 'text-align: center'}
-  = flash[:success]
-  = flash[:error]
+.div
+  %form{action: '/schedule', method: 'post'}
+    毎日
+    %select{name: 'hours'}
+      - (0..23).each do |hours|
+        %option{value: hours}= hours
+    時ごろに
+    %input{type: 'submit', value: '変更する'}
 
-  .div
-    %form{action: '/schedule', method: 'post'}
-      毎日
-      %select{name: 'hours'}
-        - (0..23).each do |hours|
-          %option{value: hours}= hours
-      時ごろに
-      %input{type: 'submit', value: '変更する'}
-
-  .div
-    %a{href: '/change'} アイコン画像を今すぐ変更する
+.div
+  %a{href: '/change'} アイコン画像を今すぐ変更する
