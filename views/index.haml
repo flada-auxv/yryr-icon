@@ -16,17 +16,17 @@
 #yryr-icon
 
 :javascript
-  $('#icon-change').click(function () {
+  $('#icon-change').click(function() {
     var spinner = new Spinner().spin();
 
     $.ajax({
       url: '/change',
-      beforeSend: function () { $('#yryr-icon').append(spinner.el); }
-    }).done(function (data) {
+      beforeSend: function() { $('#yryr-icon').append(spinner.el); }
+    }).done(function(data) {
       $('#yryr-icon').html(data);
-    }).fail(function () {
+    }).fail(function() {
       $('#yryr-icon').html('ふぇぇ、何かエラーが起きたみたいだよぉ＞＜');
-    }).always(function () {
+    }).always(function() {
       spinner.stop();
     });
   });
