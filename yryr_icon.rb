@@ -6,6 +6,7 @@ require 'pg'
 require 'rack-flash'
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'sinatra/reloader'
 require 'twitter'
 require 'yaml'
 
@@ -15,6 +16,7 @@ require_relative 'models/icon'
 
 class YRYRIcon < Sinatra::Base
   register Sinatra::ActiveRecordExtension
+  register Sinatra::Reloader
 
   configure do
     enable :sessions
