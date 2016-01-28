@@ -8,7 +8,7 @@
     %button#icon-change.pure-button.pure-button-primary 変更する
 
   %div
-    %form{action: '/schedule', method: 'post'}
+    %form.pure-form{action: '/schedule', method: 'post'}
       毎日
       %select{name: 'hours'}
         - (0..23).each do |hours|
