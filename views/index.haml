@@ -1,7 +1,11 @@
-= flash[:success]
-= flash[:error]
+.notice
+  = flash[:success]
+  = flash[:error]
 
 .control
+  %div
+    %button#icon-change 今すぐガチャる
+
   %div
     %form{action: '/schedule', method: 'post'}
       毎日
@@ -9,10 +13,7 @@
         - (0..23).each do |hours|
           %option{value: hours}= hours
       時ごろに
-      %input{type: 'submit', value: '変更する'}
-
-  %div
-    %a#icon-change{href: '#'} アイコン画像を今すぐ変更する
+      %button{type: 'submit'} ガチャを予約する
 
 #yryr-icon
 
