@@ -52,7 +52,7 @@ class YRYRIcon < Sinatra::Base
 
     current_user.schedule_at(params[:hours])
 
-    flash[:success] = "毎日 #{params[:hours]} 時に実行されるようにスケジュールしたよ"
+    flash[:success] = "毎日 #{params[:hours]} 時に実行されるように予約したよ"
 
     redirect to('/')
   end

@@ -4,7 +4,8 @@
 
 .control
   %div
-    %button#icon-change 今すぐガチャる
+    今すぐアイコン画像を
+    %button#icon-change.pure-button.pure-button-primary 変更する
 
   %div
     %form{action: '/schedule', method: 'post'}
@@ -13,7 +14,7 @@
         - (0..23).each do |hours|
           %option{value: hours}= hours
       時ごろに
-      %button{type: 'submit'} ガチャを予約する
+      %button.pure-button.pure-button-primary{type: 'submit'} 予約する
 
 #yryr-icon
 
