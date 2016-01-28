@@ -1,6 +1,6 @@
-.notice
-  = flash[:success]
-  = flash[:error]
+- if flash[:notice]
+  .notice
+    = flash[:notice]
 
 .control
   %div

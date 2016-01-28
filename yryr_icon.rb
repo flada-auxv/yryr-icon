@@ -52,7 +52,7 @@ class YRYRIcon < Sinatra::Base
 
     current_user.schedule_at(params[:hours])
 
-    flash[:success] = "毎日 #{params[:hours]} 時に実行されるように予約したよ"
+    flash[:notice] = "毎日 #{params[:hours]} 時に実行されるように予約したよ"
 
     redirect to('/')
   end
@@ -73,7 +73,7 @@ class YRYRIcon < Sinatra::Base
 
     def require_authentication!
       unless current_user
-        flash[:error] = 'トップページから Twitter で認証してね'
+        flash[:notice] = 'トップページから Twitter で認証してね'
 
         redirect to('/')
       end
