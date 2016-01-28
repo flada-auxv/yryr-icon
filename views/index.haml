@@ -1,17 +1,18 @@
 = flash[:success]
 = flash[:error]
 
-.div
-  %form{action: '/schedule', method: 'post'}
-    毎日
-    %select{name: 'hours'}
-      - (0..23).each do |hours|
-        %option{value: hours}= hours
-    時ごろに
-    %input{type: 'submit', value: '変更する'}
+.control
+  %div
+    %form{action: '/schedule', method: 'post'}
+      毎日
+      %select{name: 'hours'}
+        - (0..23).each do |hours|
+          %option{value: hours}= hours
+      時ごろに
+      %input{type: 'submit', value: '変更する'}
 
-.div
-  %a#icon-change{href: '#'} アイコン画像を今すぐ変更する
+  %div
+    %a#icon-change{href: '#'} アイコン画像を今すぐ変更する
 
 #yryr-icon
 

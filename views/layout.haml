@@ -6,5 +6,8 @@
     %link{rel: :stylesheet, href: '/stylesheets/application.css'}
 
   %body
-    %h1 TwitterのアイコンをランダムでYRYRするやつ
-    = yield
+    %header
+      %h1 TwitterのアイコンをランダムでYRYRするやつ
+    .content
+      = yield
+    %footer
