@@ -20,7 +20,7 @@
 
 :javascript
   $('#icon-change').click(function() {
-    var spinner = new Spinner({lines: 13, length: 28, width: 14, radius: 42}).spin();
+    var spinner = new Spinner({lines: 13, length: 28, width: 14, radius: 42, scale: 0.5}).spin();
 
     $.ajax({
       url: '/change',
