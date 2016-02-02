@@ -1,5 +1,5 @@
-# refactored-bassoon
-[![Circle CI](https://circleci.com/gh/flada-auxv/refactored-bassoon.svg?style=svg)](https://circleci.com/gh/flada-auxv/refactored-bassoon)
+# yryr-icon
+[![Circle CI](https://circleci.com/gh/flada-auxv/yryr-icon.svg?style=svg)](https://circleci.com/gh/flada-auxv/yryr-icon)
 
 ## Setup
 1. `mv .env{.example,}` and replace placeholder with the appropriate values you obtained [here](https://apps.twitter.com).
