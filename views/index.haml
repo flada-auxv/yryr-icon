@@ -24,6 +24,7 @@
 
     $.ajax({
       url: '/change',
+      method: 'POST',
       beforeSend: function() { $('#yryr-icon').append(spinner.el); }
     }).done(function(data) {
       $('#yryr-icon').html(data);

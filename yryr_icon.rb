@@ -39,7 +39,7 @@ class YRYRIcon < Sinatra::Base
     haml :not_signed_in
   end
 
-  get '/change' do
+  post '/change' do
     require_authentication!
 
     @icon = current_user.update_icon_randomly
