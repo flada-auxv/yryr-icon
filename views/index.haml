@@ -4,10 +4,6 @@
 
 .control
   %div
-    今すぐアイコン画像を
-    %button#icon-change.pure-button 変更する
-
-  %div
     %form.pure-form{action: '/schedule', method: 'post'}
       毎日
       %select{name: 'hours'}
@@ -16,7 +12,12 @@
       時ごろに
       %button.pure-button{type: 'submit'} 予約する
 
-#yryr-icon
+  %div
+    %div
+      今すぐアイコン画像を
+      %button#icon-change.pure-button 変更する
+
+    #yryr-icon
 
 :javascript
   $('#icon-change').click(function() {

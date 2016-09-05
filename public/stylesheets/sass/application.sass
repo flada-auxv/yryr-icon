@@ -1,9 +1,19 @@
 @import not_signed_in
 
+$base_width: 650px
+$base_margin: 4rem
+$base_padding: 1.5rem
+
 header
+  width: $base_width
+  margin: $base_margin 0
+  padding-left: $base_padding
   h1
-    padding: 1rem
-    border-bottom: 1px solid #eee
+    padding: 0
+    margin: 0
+    font-size: 300%
+    font-weight: 900
+    border-bottom: 2px solid #eee
 
 body
   font-family: Avenir , "Open Sans" , "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif
@@ -12,39 +22,17 @@ body
   flex-direction: column
   align-items: center
 
-  text-align: center
-
-  .notice
-    text-align: center
-    margin: 0.5rem
+  text-align: left
 
   .content
     display: flex
     flex-direction: column
     justify-content: flex-start
+    width: $base_width
+    padding-left: $base_padding
 
     .control
-      display: flex
-
-      margin-bottom: 0.5rem
-
       div
-        display: inline-block
-        padding: 0.5rem 1rem
+        margin: $base_margin 0
 
-      button, select
-        font-size: 85%
-
-    #yryr-icon
-      display: flex
-      justify-content: center
-
-      position: relative
-
-      margin: 1rem 0
-      height: 70vh
-
-      img
-        justify-content: center
-
-        height: 100%
+      #yryr-icon
