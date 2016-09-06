@@ -1,3 +1,6 @@
 .env
 spec/examples.txt
 public/stylesheets/**/*.css
+.bundle
+.sass-cache
+*.css.map
