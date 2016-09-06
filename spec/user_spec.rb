@@ -1,5 +1,6 @@
 RSpec.describe User do
   let(:user) { User.create(twitter_uid: SecureRandom.hex, token: 'xxx', secret: 'xxx') }
+  let(:twitter) { double(:twitter) }
 
   describe '#schedule_at' do
     let(:hours) { 3 }
@@ -19,9 +20,25 @@ RSpec.describe User do
       allow(user).to receive(:twitter).and_return(twitter)
     end
 
-    it  do
+    it do
       expect(twitter).to receive(:update_profile_image).with(icon)
       user.update_profile_image(icon)
+    end
+  end
+
+  describe '#tweet_chaging_icon' do
+    let(:twitter) { double(:twitter) }
+
+    before do
+      allow(user).to receive(:twitter).and_return(twitter)
+    end
+
+    it do
+      expect(twitter).to receive(:update).with(<<-TWEET)
+"TwitterのアイコンをランダムでYRYRするやつ" でアイコンを変えたよ https://yryr-icon.herokuapp.com/ #yryr_icon
+image_url
+TWEET
+      user.tweet_chaging_icon('image_url')
     end
   end
 end
