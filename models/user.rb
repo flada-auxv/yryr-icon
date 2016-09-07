@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
     twitter.update_profile_image(icon)
   end
 
-  def tweet_chaging_icon(icon_url)
+  def tweet_changing_icon(icon_url)
     twitter.update <<TWEET
 "TwitterのアイコンをランダムでYRYRするやつ" でアイコンを変えたよ https://yryr-icon.herokuapp.com/ #yryr_icon
 #{icon_url}
@@ -21,7 +21,7 @@ TWEET
   def update_icon_randomly
     icon = Icon.get_random
     update_profile_image(icon.file)
-    tweet_chaging_icon(icon.url)
+    tweet_changing_icon(icon.url)
     icon
   end
 

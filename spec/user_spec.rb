@@ -25,7 +25,7 @@ RSpec.describe User do
     end
   end
 
-  describe '#tweet_chaging_icon' do
+  describe '#tweet_changing_icon' do
     let(:twitter) { double(:twitter) }
 
     before do
@@ -37,7 +37,7 @@ RSpec.describe User do
 "TwitterのアイコンをランダムでYRYRするやつ" でアイコンを変えたよ https://yryr-icon.herokuapp.com/ #yryr_icon
 image_url
 TWEET
-      user.tweet_chaging_icon('image_url')
+      user.tweet_changing_icon('image_url')
     end
   end
 end
