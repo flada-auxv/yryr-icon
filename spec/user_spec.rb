@@ -19,9 +19,25 @@ RSpec.describe User do
       allow(user).to receive(:twitter).and_return(twitter)
     end
 
-    it  do
+    it do
       expect(twitter).to receive(:update_profile_image).with(icon)
       user.update_profile_image(icon)
+    end
+  end
+
+  describe '#tweet_changing_icon' do
+    let(:twitter) { double(:twitter) }
+
+    before do
+      allow(user).to receive(:twitter).and_return(twitter)
+    end
+
+    it do
+      expect(twitter).to receive(:update).with(<<-TWEET)
+"TwitterのアイコンをランダムでYRYRするやつ" でアイコンを変えたよ https://yryr-icon.herokuapp.com/ #yryr_icon
+image_url
+TWEET
+      user.tweet_changing_icon('image_url')
     end
   end
 end
